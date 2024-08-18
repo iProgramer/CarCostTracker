@@ -2,13 +2,11 @@ package de.poloczek.carcosttracker.infrastructure.database.inmomery
 
 import de.poloczek.carcosttracker.domain.model.Identity
 import de.poloczek.carcosttracker.domain.model.Refueling
-import de.poloczek.carcosttracker.domain.port.out.CreateRefuelingPort
-import de.poloczek.carcosttracker.domain.port.out.GetAllRefuelingPort
-import de.poloczek.carcosttracker.domain.port.out.GetRefuelingByIdPort
+import de.poloczek.carcosttracker.domain.port.out.RefuelingRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-class RefuelingListDatabase : CreateRefuelingPort, GetAllRefuelingPort, GetRefuelingByIdPort {
+class RefuelingListDatabase : RefuelingRepository {
 
     companion object {
         private val refuelingMap: MutableMap<Long, Refueling> = mutableMapOf()

@@ -4,24 +4,22 @@ import de.poloczek.carcosttracker.domain.model.Refueling
 import de.poloczek.carcosttracker.domain.port.`in`.CreateRefuelingUseCase
 import de.poloczek.carcosttracker.domain.port.`in`.GetAllRefuelingsUseCase
 import de.poloczek.carcosttracker.domain.port.`in`.GetRefuelingByIdUseCase
-import de.poloczek.carcosttracker.domain.port.out.GetRefuelingByIdPort
-import de.poloczek.carcosttracker.infrastructure.database.inmomery.RefuelingListDatabase
-import java.time.LocalDate
+import de.poloczek.carcosttracker.domain.port.out.RefuelingRepository
 
 class RefuelingService(
-    private val refuelingListDatabase: RefuelingListDatabase,
+    private val refuelingRepository: RefuelingRepository,
 ) : CreateRefuelingUseCase, GetAllRefuelingsUseCase, GetRefuelingByIdUseCase {
 
     override fun createRefueling(refueling: Refueling): Long {
-        return refuelingListDatabase.createRefueling(refueling)
+        return refuelingRepository.createRefueling(refueling)
     }
 
     override fun getAllRefuelings(): List<Refueling> {
-        return refuelingListDatabase.getAllRefuelings()
+        return refuelingRepository.getAllRefuelings()
     }
 
     override fun getRefuelingById(id: Long): Result<Refueling> {
-        val result = refuelingListDatabase.getRefuelingById(id)
+        val result = refuelingRepository.getRefuelingById(id)
         return if (result != null) {
             Result.Success(result)
         } else {
