@@ -19,4 +19,4 @@ COPY --from=build /app/build/libs/carcosttracker-0.0.1-SNAPSHOT.jar carcosttrack
 EXPOSE 8080
 
 # Starte die Anwendung
-ENTRYPOINT ["java", "-jar", "build/libs/carcosttracker.jar"]
+ENTRYPOINT ["java", "-jar", "carcosttracker.jar"]
