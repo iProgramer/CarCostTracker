@@ -13,10 +13,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Kopiere nur die erzeugte JAR-Datei aus der Build-Stage
-COPY --from=build /app/build/libs/*.jar carcosttracker-0.0.1-SNAPSHOT-plain.jar
+COPY --from=build /app/build/libs/carcosttracker-0.0.1-SNAPSHOT.jar carcosttracker.jar
 
 # Exponiere den Port
 EXPOSE 8080
 
 # Starte die Anwendung
-ENTRYPOINT ["java", "-jar", "build/libs/carcosttracker-0.0.1-SNAPSHOT-plain.jar"]
+ENTRYPOINT ["java", "-jar", "build/libs/carcosttracker.jar"]
