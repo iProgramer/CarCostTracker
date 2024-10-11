@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 # Triggered when pushing or creating a pull request
 on:
