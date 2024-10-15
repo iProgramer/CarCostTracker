@@ -38,7 +38,6 @@ jobs:
 
       # Archive test reports
       - name: Archive test reports
-        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
